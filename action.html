@@ -144,20 +144,44 @@
 
       <div class="card" id="inscription">
         <div class="video"><small>⬆️ Place ta vidéo (≤ 5 min)</small></div>
-        <form id="optinForm" method="post" action="#" novalidate>
-          <input type="hidden" name="source" id="source" value="ret@home-optin">
-          <input type="hidden" name="utm" id="utm">
-          <label for="fname">Prénom</label>
-          <input id="fname" name="FNAME" type="text" autocomplete="given-name" placeholder="Votre prénom">
-          <label for="email">Email <span style="color:var(--gold)">*</span></label>
-          <input id="email" name="EMAIL" type="email" required placeholder="votre@email.com">
-          <div class="error" id="emailErr">Merci d’entrer un email valide.</div>
-          <label class="consent"><input id="consent" type="checkbox" required> Je m’inscris à la newsletter et je consens à recevoir l’accès privé au live Zoom.</label>
-          <div class="error" id="consentErr">Veuillez cocher cette case pour continuer.</div>
-          <button class="cta" type="submit" id="submitBtn">Recevoir mon accès privé</button>
-          <div class="success" id="okMsg">Merci ! Vérifiez votre boîte mail : le lien du live arrive 💌</div>
-          <div class="error" id="failMsg">Oups, un problème est survenu. Réessayez ou contactez-nous.</div>
-        </form>
+<form id="optinForm"
+      method="post"
+      action="https://visionvibrancy.us6.list-manage.com/subscribe/post?u=505480829f73480597694472f&id=32ac31451a&f_id=00fbcde1f0"
+      target="_self" novalidate>
+
+  <!-- Tracking facultatif (sera ignoré si non mappé côté Mailchimp) -->
+  <input type="hidden" name="TAGS" value="Retraite@Home — Live Déclic">
+  <input type="hidden" name="source" value="ret@home-optin">
+  <input type="hidden" name="utm" id="utm">
+
+  <!-- Prénom -->
+  <label for="mce-FNAME">Prénom</label>
+  <input id="mce-FNAME" name="FNAME" type="text" autocomplete="given-name" placeholder="Votre prénom">
+
+  <!-- Email (obligatoire) -->
+  <label for="mce-EMAIL">Email <span style="color:var(--gold)">*</span></label>
+  <input id="mce-EMAIL" name="EMAIL" type="email" required placeholder="votre@email.com">
+  <div class="error" id="emailErr" style="display:none">Merci d’entrer un email valide.</div>
+
+  <!-- Newsletter (intérêt Mailchimp : group[12940][2]) -->
+  <label class="consent">
+    <input type="checkbox" id="nl" name="group[12940][2]" value="2" checked required>
+    Je m’inscris à la newsletter et je consens à recevoir l’accès privé au live Zoom.
+  </label>
+  <div class="error" id="consentErr" style="display:none">Veuillez cocher cette case pour continuer.</div>
+
+  <!-- Honeypot anti-bot (NE PAS SUPPRIMER) -->
+  <div aria-hidden="true" style="position:absolute; left:-5000px;">
+    <input type="text" name="b_505480829f73480597694472f_32ac31451a" tabindex="-1" value="">
+  </div>
+
+  <!-- CTA -->
+  <button class="cta" type="submit" id="submitBtn">Recevoir mon accès privé</button>
+
+  <!-- Messages UX -->
+  <div class="success" id="okMsg" style="display:none">Merci ! Vérifiez votre boîte mail : le lien du live arrive 💌</div>
+  <div class="error" id="failMsg" style="display:none">Oups, un problème est survenu. Réessayez ou contactez-nous.</div>
+</form>
       </div>
     </section>
 
