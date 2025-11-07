@@ -1,62 +1,142 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Retraite@Home – Accès privé au live</title>
-<meta name="description" content="Accès au live spécial : une méthode claire, accessible et structurée pour votre corps et votre esprit. Pas de dogmes, pas de promesses vagues." />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root{$1--ok:#28a745; --err:#e23b3b;}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Live Déclic — Accès privé</title>
+  <meta name="description" content="Accès privé au live Déclic — méthode claire, accessible et structurée pour le corps et l’esprit.">
+  <style>
+    :root{--bg:#0b0b0d;--fg:#e9dfc6;--gold:#d4af37;--muted:#b9ac96;--card:#121216;--ok:#2ecc71;--err:#e23b3b}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;color:var(--fg);font-family:system-ui,-apple-system,Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg)}
+    body::before{content:"";position:fixed;inset:0;z-index:-1;background:
+      radial-gradient(120% 80% at 10% 10%, rgba(212,175,55,.10), rgba(11,11,13,0) 60%),
+      radial-gradient(140% 100% at 90% 30%, rgba(212,175,55,.06), rgba(11,11,13,0) 70%),
+      radial-gradient(1px 1px at 8% 12%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 18% 22%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 28% 42%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 38% 62%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 48% 18%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 58% 28%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 68% 48%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 78% 68%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 88% 38%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 12% 76%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 32% 86%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 72% 84%, #fff 60%, transparent 61%),
+      var(--bg)}
+    a{color:var(--gold);text-decoration:none}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(212,175,55,.25);padding:12px 0 18px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand h1{margin:0;font-weight:700;font-size:22px;letter-spacing:.2px}
+    .logo{width:42px;height:42px;border-radius:50%;object-fit:cover;box-shadow:0 0 32px rgba(212,175,55,.35);border:1px solid rgba(212,175,55,.35)}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:28px 0}
+    .kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.18em;font-weight:600;font-size:12px}
+    .title{font-weight:800;font-size:46px;line-height:1.05;margin:10px 0;color:var(--gold)}
+    .subtitle{font-size:18px;color:#efe4c8;opacity:.95;max-width:62ch}
+    .badge{display:inline-flex;gap:8px;align-items:center;color:var(--gold);border:1px solid rgba(212,175,55,.35);border-radius:999px;padding:6px 10px;margin:12px 0;background:rgba(212,175,55,.06)}
+    .bullets{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px 0}
+    .pill{background:rgba(255,255,255,.02);border:1px solid rgba(212,175,55,.18);border-radius:14px;padding:12px}
+    .pill b{color:var(--gold)}
+    .card{background:var(--card);border:1px solid rgba(212,175,55,.18);border-radius:16px;padding:14px}
+    .video{aspect-ratio:16/9;border:1px dashed rgba(212,175,55,.4);border-radius:12px;display:grid;place-items:center;color:#e5d7a4;background:
+      radial-gradient(60% 80% at 20% 30%, rgba(212,175,55,.16), rgba(14,14,17,0) 70%),#0b0b0d}
+    .agenda{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:10px}
+    .item{background:rgba(255,255,255,.02);border:1px solid rgba(212,175,55,.18);border-radius:12px;padding:12px}
+    .item h4{margin:0 0 6px;color:var(--gold)}
+    form{display:grid;gap:12px;margin-top:12px}
+    label{font-size:13px;color:var(--muted)}
+    input[type=email],input[type=text]{width:100%;background:#0b0b0e;border:1px solid #2a2a30;border-radius:12px;color:var(--fg);padding:12px 14px;font-size:16px}
+    input[type=checkbox]{transform:translateY(2px)}
+    .consent{font-size:12.5px;color:#bfb8a8}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#121212;border:none;border-radius:999px;padding:14px 18px;font-weight:800;cursor:pointer}
+    .error{color:var(--err);font-size:13px;display:none}
+    .success{color:var(--ok);font-size:14px;display:none}
+    footer{margin:36px 0 18px;font-size:12px;color:#a79c8b}
+    @media (max-width:960px){.hero{grid-template-columns:1fr}.bullets{grid-template-columns:1fr}.agenda{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img class="logo" src="logo.jpg" alt="Vision Vibrancy">
+        <h1>Live Déclic</h1>
+      </div>
+      <a href="#inscription" style="font-weight:700">S'inscrire</a>
+    </header>
 
+    <section class="hero">
+      <div>
+        <div class="kicker">Accès Gratuit Privé au Live</div>
+        <h2 class="title">Déclic</h2>
+        <p class="subtitle">Pas de dogmes ni de promesses vagues : une méthode claire, accessible et structurée pour votre corps et votre esprit.</p>
+        <div class="badge">🎥 Live de lancement • Retraite@Home</div>
 
-html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
-body{min-height:100vh;position:relative;background:
-radial-gradient(120% 80% at 10% 10%, rgba(212,175,55,.10), rgba(11,11,13,0) 60%),
-radial-gradient(140% 100% at 90% 30%, rgba(212,175,55,.06), rgba(11,11,13,0) 70%),
-url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1600' height='1200' viewBox='0 0 1600 1200'><rect width='100%' height='100%' fill='none'/>
-<circle cx='80' cy='120' r='1.3' fill='%23d4af37' opacity='.85'/>
-<circle cx='210' cy='340' r='1' fill='%23f6f4ee' opacity='.7'/>
-<circle cx='420' cy='220' r='1.2' fill='%23d4af37' opacity='.6'/>
-<circle cx='700' cy='110' r='1.1' fill='%23f6f4ee' opacity='.7'/>
-<circle cx='980' cy='200' r='1.2' fill='%23d4af37' opacity='.8'/>
-<circle cx='1200' cy='90' r='1' fill='%23f6f4ee' opacity='.65'/>
-<circle cx='1500' cy='160' r='1.3' fill='%23d4af37' opacity='.75'/>
-<circle cx='140' cy='600' r='1.1' fill='%23f6f4ee' opacity='.7'/>
-<circle cx='360' cy='720' r='1.2' fill='%23d4af37' opacity='.8'/>
-<circle cx='680' cy='680' r='1' fill='%23f6f4ee' opacity='.65'/>
-<circle cx='960' cy='620' r='1.3' fill='%23d4af37' opacity='.75'/>
-<circle cx='1240' cy='760' r='1.1' fill='%23f6f4ee' opacity='.7'/>
-<circle cx='1480' cy='980' r='1' fill='%23f6f4ee' opacity='.6'/>
-<circle cx='220' cy='980' r='1.2' fill='%23d4af37' opacity='.7'/>
-<circle cx='520' cy='1040' r='1' fill='%23f6f4ee' opacity='.7'/>
-<circle cx='880' cy='980' r='1.2' fill='%23d4af37' opacity='.75'/>
-</svg>") center/cover no-repeat fixed;}
-/* Optionnel : halo/silhouette à ajouter (déposez assets/silhouette.png) */
-.bg-hero{position:absolute;inset:0;pointer-events:none;opacity:.22;background-repeat:no-repeat;background-position:left 4% bottom -2%;background-size:36% auto;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 900'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23d4af37' stop-opacity='.35'/><stop offset='100%' stop-color='%23d4af37' stop-opacity='.05'/></linearGradient></defs><path d='M140 820c-10-120 10-190 20-230 20-80 30-120 10-170-20-55-70-95-65-155 5-65 65-110 125-120 55-10 115 15 140 60 40 73-10 145-35 170-20 20-30 40-25 70 5 35 30 90 15 170-10 55-40 95-85 130-30 25-60 45-100 75z' fill='url(%23g)'/></svg>");}
-a{color:var(--gold);text-decoration:none}
-a:hover{text-decoration:underline}
-.wrap{max-width:1080px;margin:0 auto;padding:24px}
-header{
-border-bottom:1px solid #1f1f22;
-padding:12px 0 20px;
-display:flex;align-items:center;justify-content:space-between;gap:16px;
-}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:42px;height:42px;border-radius:50%;background:radial-gradient(60% 60% at 50% 40%, var(--gold), #7b6031 70%, #2b2212 100%);box-shadow:0 0 40px rgba(202,169,104,.25)}
-.brand h1{font-family:"Cormorant Garamond",serif;font-weight:700;letter-spacing:.5px;font-size:22px;margin:0}
-.cta-top a{display:inline-block;background:transparent;border:1px solid var(--gold);color:var(--fg);padding:10px 16px;border-radius:999px;font-weight:600}
+        <div class="bullets">
+          <div class="pill"><b>Choisir de créer sa vie</b><br><span>Intention claire + actions réalistes.</span></div>
+          <div class="pill"><b>Investir en soi</b><br><span>Routine efficace, respiration, présence au quotidien.</span></div>
+          <div class="pill"><b>Trouver son alignement</b><br><span>Tête & cœur ensemble, constance intérieure, ancrer la confiance.</span></div>
+        </div>
 
+        <div class="agenda">
+          <div class="item"><h4>Ce que je t'offre</h4><div>Des Déclics concrets, du coaching, un plan d'action efficace.</div></div>
+          <div class="item"><h4>Pour qui</h4><div>Femmes prêtes à se choisir, et à créer leur vie.</div></div>
+          <div class="item"><h4>Quand & où</h4><div>En ligne (Zoom). Date & heure : <b>[à insérer]</b>. Replay disponible.</div></div>
+        </div>
+      </div>
 
-.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;padding:36px 0}
-.kicker{color:var(--muted);text-transform:uppercase;letter-spacing:.18em;font-weight:600;font-size:12px}
-.title{font-family:"Cormorant Garamond",serif;font-weight:700;font-size:46px;line-height:1.04;margin:10px 0 12px;color:var(--gold);letter-spacing:.2px}
-.subtitle{font-size:18px;color:#f0ede6;opacity:.9;max-width:58ch}
+      <div class="card" id="inscription">
+        <div class="video"><small>⬆️ Place ta vidéo (≤ 5 min)</small></div>
+        <form id="optinForm" method="post" action="#" novalidate>
+          <input type="hidden" name="source" id="source" value="ret@home-optin">
+          <input type="hidden" name="utm" id="utm">
+          <label for="fname">Prénom</label>
+          <input id="fname" name="FNAME" type="text" autocomplete="given-name" placeholder="Votre prénom">
+          <label for="email">Email <span style="color:var(--gold)">*</span></label>
+          <input id="email" name="EMAIL" type="email" required placeholder="votre@email.com">
+          <div class="error" id="emailErr">Merci d’entrer un email valide.</div>
+          <label class="consent"><input id="consent" type="checkbox" required> Je m’inscris à la newsletter et je consens à recevoir l’accès privé au live Zoom.</label>
+          <div class="error" id="consentErr">Veuillez cocher cette case pour continuer.</div>
+          <button class="cta" type="submit" id="submitBtn">Recevoir mon accès privé</button>
+          <div class="success" id="okMsg">Merci ! Vérifiez votre boîte mail : le lien du live arrive 💌</div>
+          <div class="error" id="failMsg">Oups, un problème est survenu. Réessayez ou contactez-nous.</div>
+        </form>
+      </div>
+    </section>
 
+    <footer>
+      Vision Vibrancy LP • 5 South Charlotte Street, Edinburgh, EH2 4AN, Scotland, UK • SL037640 •
+      <a href="mentions.html">Mentions légales</a> •
+      <a href="mailto:contact@visionvibrancy.com">contact@visionvibrancy.com</a>
+    </footer>
+  </div>
 
-.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);padding:6px 10px;border-radius:999px;color:var(--gold);font-size:12px;margin:10px 0;background:rgba(212,175,55,.06)}
-
-
+  <script>
+    (function(){
+      const p=new URLSearchParams(location.search);
+      const utm=['utm_source','utm_medium','utm_campaign','utm_content','utm_term']
+        .map(k=>p.get(k)?`${k}:${p.get(k)}`:null).filter(Boolean).join('|');
+      document.getElementById('utm').value=utm;
+    })();
+    const f=document.getElementById('optinForm'),
+          email=document.getElementById('email'),
+          emailErr=document.getElementById('emailErr'),
+          consent=document.getElementById('consent'),
+          consentErr=document.getElementById('consentErr'),
+          okMsg=document.getElementById('okMsg'),
+          failMsg=document.getElementById('failMsg');
+    function isEmail(v){return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/.test(v)}
+    f.addEventListener('submit',function(e){
+      emailErr.style.display='none'; consentErr.style.display='none';
+      okMsg.style.display='none'; failMsg.style.display='none';
+      let valid=true;
+      if(!isEmail(email.value.trim())){emailErr.style.display='block'; valid=false}
+      if(!consent.checked){consentErr.style.display='block'; valid=false}
+      if(!valid){e.preventDefault(); return}
+      // Mets ici l'URL d'action (Mailchimp / Brevo / ConvertKit) pour un envoi réel.
+    });
+  </script>
+</body>
 </html>
