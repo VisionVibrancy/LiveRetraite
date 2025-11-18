@@ -99,20 +99,20 @@
     footer{margin:36px 0 18px;font-size:12px;color:#a79c8b}
     @media (max-width:960px){.hero{grid-template-columns:1fr}.bullets{grid-template-columns:1fr}.agenda{grid-template-columns:1fr}}
     @media (max-width:600px){
-  .logo{
-    width:110px;
-    height:110px;
-  }
-  .title{
-    font-size:38px;
-  }
-  .subtitle{
-    font-size:16px;
-  }
-  .wrap{
-    padding:18px;
-  }
-}
+      .logo{
+        width:110px;
+        height:110px;
+      }
+      .title{
+        font-size:38px;
+      }
+      .subtitle{
+        font-size:16px;
+      }
+      .wrap{
+        padding:18px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -144,53 +144,54 @@
 
       <div class="card" id="inscription">
         <div class="video">
-  <video controls style="width:100%;height:100%;border-radius:12px;">
-    <source src="declic-live.mp4" type="video/mp4">
-    Votre navigateur ne supporte pas la vidéo HTML5.
-  </video>
-</div>
-<form id="optinForm"
-      method="post"
-      action="https://visionvibrancy.us6.list-manage.com/subscribe/post?u=505480829f73480597694472f&id=32ac31451a&f_id=00fbcde1f0"
-      target="_self" novalidate>
+          <video controls style="width:100%;height:100%;border-radius:12px;">
+            <source src="declic-live.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo HTML5.
+          </video>
+        </div>
 
-  <!-- Tracking facultatif (sera ignoré si non mappé côté Mailchimp) -->
-  <input type="hidden" name="TAGS" value="Retraite@Home — Live Déclic">
-  <input type="hidden" name="source" value="ret@home-optin">
-  <input type="hidden" name="utm" id="utm">
+        <form id="optinForm"
+              method="post"
+              action="https://visionvibrancy.us6.list-manage.com/subscribe/post?u=505480829f73480597694472f&id=32ac31451a&f_id=00fbcde1f0&tags=LiveDeclic"
+              target="_self" novalidate>
 
-  <!-- Prénom -->
-  <label for="mce-FNAME">Prénom</label>
-  <input id="mce-FNAME" name="FNAME" type="text" autocomplete="given-name" placeholder="Votre prénom">
+          <!-- Tracking facultatif (sera ignoré si non mappé côté Mailchimp) -->
+          <input type="hidden" name="TAGS" value="Retraite@Home — Live Déclic">
+          <input type="hidden" name="source" value="ret@home-optin">
+          <input type="hidden" name="utm" id="utm">
 
-  <!-- Email (obligatoire) -->
-  <label for="mce-EMAIL">Email <span style="color:var(--gold)">*</span></label>
-  <input id="mce-EMAIL" name="EMAIL" type="email" required placeholder="votre@email.com">
-  <div class="error" id="emailErr" style="display:none">Merci d’entrer un email valide.</div>
+          <!-- Prénom -->
+          <label for="mce-FNAME">Prénom</label>
+          <input id="mce-FNAME" name="FNAME" type="text" autocomplete="given-name" placeholder="Votre prénom">
 
-  <!-- WhatsApp -->
-<label for="mce-WHATSAPP">Numéro WhatsApp (recommandé)</label>
-<input id="mce-WHATSAPP" name="WHATSAPP" type="text" placeholder="+33 6 12 34 56 78">
+          <!-- Email (obligatoire) -->
+          <label for="mce-EMAIL">Email <span style="color:var(--gold)">*</span></label>
+          <input id="mce-EMAIL" name="EMAIL" type="email" required placeholder="votre@email.com">
+          <div class="error" id="emailErr" style="display:none">Merci d’entrer un email valide.</div>
+
+          <!-- WhatsApp -->
+          <label for="mce-WHATSAPP">Numéro WhatsApp (recommandé)</label>
+          <input id="mce-WHATSAPP" name="WHATSAPP" type="text" placeholder="+33 6 12 34 56 78">
  
-  <!-- Newsletter (intérêt Mailchimp : group[12940][2]) -->
-  <label class="consent">
-    <input type="checkbox" id="nl" name="group[12940][2]" value="2" required checked>
-    Je m’inscris à la newsletter et je consens à recevoir l’accès privé au live Zoom.
-  </label>
-  <div class="error" id="consentErr" style="display:none">Veuillez cocher cette case pour continuer.</div>
+          <!-- Newsletter (intérêt Mailchimp : group[12940][2]) -->
+          <label class="consent">
+            <input type="checkbox" id="nl" name="group[12940][2]" value="2" required checked>
+            Je m’inscris à la newsletter et je consens à recevoir l’accès privé au live Zoom.
+          </label>
+          <div class="error" id="consentErr" style="display:none">Veuillez cocher cette case pour continuer.</div>
 
-  <!-- Honeypot anti-bot (NE PAS SUPPRIMER) -->
-  <div aria-hidden="true" style="position:absolute; left:-5000px;">
-    <input type="text" name="b_505480829f73480597694472f_32ac31451a" tabindex="-1" value="">
-  </div>
+          <!-- Honeypot anti-bot (NE PAS SUPPRIMER) -->
+          <div aria-hidden="true" style="position:absolute; left:-5000px;">
+            <input type="text" name="b_505480829f73480597694472f_32ac31451a" tabindex="-1" value="">
+          </div>
 
-  <!-- CTA -->
-  <button class="cta" type="submit" id="submitBtn">Recevoir mon accès privé</button>
+          <!-- CTA -->
+          <button class="cta" type="submit" id="submitBtn">Recevoir mon accès privé</button>
 
-  <!-- Messages UX -->
-  <div class="success" id="okMsg" style="display:none">Merci ! Vérifiez votre boîte mail : le lien du live arrive 💌</div>
-  <div class="error" id="failMsg" style="display:none">Oups, un problème est survenu. Réessayez ou contactez-nous.</div>
-</form>
+          <!-- Messages UX -->
+          <div class="success" id="okMsg" style="display:none">Merci ! Vérifiez votre boîte mail : le lien du live arrive 💌</div>
+          <div class="error" id="failMsg" style="display:none">Oups, un problème est survenu. Réessayez ou contactez-nous.</div>
+        </form>
       </div>
     </section>
 
@@ -210,9 +211,9 @@
     })();
 
     const f=document.getElementById('optinForm'),
-          email=document.getElementById('email'),
+          email=document.getElementById('mce-EMAIL'),
           emailErr=document.getElementById('emailErr'),
-          consent=document.getElementById('consent'),
+          consent=document.getElementById('nl'),
           consentErr=document.getElementById('consentErr'),
           okMsg=document.getElementById('okMsg'),
           failMsg=document.getElementById('failMsg');
@@ -220,13 +221,25 @@
     function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)}
 
     f.addEventListener('submit',function(e){
-      emailErr.style.display='none'; consentErr.style.display='none';
-      okMsg.style.display='none'; failMsg.style.display='none';
+      emailErr.style.display='none'; 
+      consentErr.style.display='none';
+      okMsg.style.display='none'; 
+      failMsg.style.display='none';
+
       let valid=true;
-      if(!isEmail(email.value.trim())){emailErr.style.display='block'; valid=false}
-      if(!consent.checked){consentErr.style.display='block'; valid=false}
-      if(!valid){e.preventDefault(); return}
-      // Remplace 'action="#"' par l’URL d’action Mailchimp/Brevo/ConvertKit pour un envoi réel.
+      if(!isEmail(email.value.trim())){
+        emailErr.style.display='block'; 
+        valid=false;
+      }
+      if(!consent.checked){
+        consentErr.style.display='block'; 
+        valid=false;
+      }
+      if(!valid){
+        e.preventDefault(); 
+        return;
+      }
+      // Si tout est valide, on laisse le formulaire partir vers Mailchimp normalement
     });
   </script>
 </body>
